@@ -1,0 +1,15 @@
+._8erikw_checkbox_container {
+    height: 14px;
+    width: 14px;
+    border: 2px solid gray;
+    border-radius: 4px;
+}
+
+._8erikw_checkbox_selected {
+    background-color: #1157C1;
+    border: 2px solid #1157C1;
+}
+
+._8erikw_checkbox {
+    color: white;
+}
