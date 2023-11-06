@@ -34,7 +34,7 @@ export function Dropdown({
 
         window.addEventListener('mousedown', handleClick);
 
-        return window.removeEventListener('mousedown', handleClick);
+        return document.removeEventListener('mousedown', handleClick);
     }, [ref, currentValues, customOnBlur])
 
     const handleCloseMenu = (e) => {
@@ -49,6 +49,16 @@ export function Dropdown({
         }
 
         return optionsByValue;
+    })()
+
+    const allOptionsByValue = (() => {
+        const optionsByValue = {}
+
+        options.forEach((option, index) => {
+            optionsByValue[option.value] = {option, index}
+        })
+
+        return optionsByValue
     })()
 
     const handleDropdownMenuSelect = (option) => {
@@ -66,7 +76,7 @@ export function Dropdown({
             if (currentOptionsByValue[option.value]) {
                 setCurrentValues((prev) => prev.filter((prevOption) => prevOption.value !== option.value))
             } else {
-                setCurrentValues((prev) => [...prev, option])
+                setCurrentValues((prev) => [...prev, option].sort((a, b) => allOptionsByValue[a.value].index - allOptionsByValue[b.value].index))
             }
         }
 

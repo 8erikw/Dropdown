@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { useState, memo } from 'react';
+import React from 'react';
 import { CheckIcon } from '@heroicons/react/24/outline'
 import './style.css'
 
